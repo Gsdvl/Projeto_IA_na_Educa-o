@@ -1,10 +1,10 @@
 # Projeto_IA_na_Educacao
 
 ## Motivação de projeto ##
-Infelizmente, há vários problemas relacionado à acessibilidade da educação por parte do público estudantil, especialmente se observar no Brasil. Com esse tópico, teve-se a iniciativa de cria é uma inteligência artificial a qual indicará cursos onlines para os usuários de acordo com suas necessidades e disponibilidades. O obejtivo é tornar a busca e aquisição mais fácil e acessível de cursos e aulas para os usuários.
+Infelizmente, há vários problemas relacionado à acessibilidade da educação por parte do público estudantil, especialmente se observar no Brasil. Com esse tópico, teve-se a iniciativa de cria uma inteligência artificial a qual indicará cursos onlines para os usuários de acordo com suas necessidades e disponibilidades. O obejtivo é tornar a busca e aquisição mais fácil e acessível de cursos e aulas para os usuários.
 A ideia surgiu inicalmente por meio de uma aula que teve como tema brainstorms para inteligências artificiais, então foi escolhida a ideia do aluno Gabriel Soares. 
 Para a criação da IA, é necessário haver bastante pesquisa focada na área de Deep Learning, obter e analisar grandes bases de dados de cursos e de alunos, contendo suas disponiblidade financeiras e corriqueiras. Com as bases de dados, deve-se entender qual a necessidade dos usuários e saber aplicar bem as técnicas para relacioná-las com os problemas e a forma de solução.
-Em geral, no mercado ja há alguns algoritmos que fazem tal objetivo, no entanto, por serem apenas algoritmos de divulgação e geralmente feito por grandes empresas, não são focados e 100% eficiêntes e focados em resolver o problema abordado.
+Em geral, no mercado ja há alguns algoritmos que fazem tal objetivo, no entanto, por serem apenas algoritmos de divulgação e geralmente feito por grandes empresas, não são 100% eficiêntes e focados em resolver o problema abordado.
 Com essa IA em bom funcionamento, deverá haver grandes chances de potencializar e aumento da educação e formação para o público estudantil.
 
 ## Funcionamento do projeto ##
