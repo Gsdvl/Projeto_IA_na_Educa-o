@@ -1,4 +1,14 @@
+import rpy2.robjects.packages as rpackages
+from rpy2.robjects.vectors import StrVector
 import subprocess
+
+def is_package_installed(package_name):
+    try:
+        rpackages.importr(package_name)
+        return True
+    except ImportError:
+        return False
+
 
 def executarModeloDeepLearning():
     caminho_arquivo_train = 'train.py'
@@ -31,7 +41,7 @@ def executarCpp():
     processo.communicate()
     
 
-def executarR():
+def filtrar():
     # Caminho para o arquivo R
     caminho_arquivo_r = 'Filtro.R'
 
@@ -41,15 +51,36 @@ def executarR():
     # Aguardar o término do processo
     processo.wait()
 
+def recomendar():
+    #caminho para o arquivo R
+    caminho_arquivo_r = 'recomendados.R'
+
+    if not is_package_installed("openxlsx"):
+        print("O pacote 'openxlsx' não está instalado. Instalando...")
+        utils = rpackages.importr("utils")
+        utils.install_packages(StrVector(["openxlsx"]))
+
+    # Carregar o pacote "openxlsx"
+    openxlsx = rpackages.importr("openxlsx")
+
+     # Executar o código R
+    processo = subprocess.Popen(['Rscript', caminho_arquivo_r])
+
+    # Aguardar o término do processo
+    processo.wait()
+
 #Chama as funções que executam os outros códigos
 executarCpp()
-print("#### Código em C++ compilado e executado ######")
-executarR()
-print("#### Código em R executado ######")
+print("#### Código em C++ compilado e executado, perfil de usuario obtido ######")
+filtrar()
+print("#### Código em R executado, arquivo base filtrado ######")
 
 print("Pronto para Rodar o código em python...")
 executarModeloDeepLearning()
 print("#### Modelo de Deep Learning Executado ######")
-# * A base de dados vai ser salva com o nome udemy_courses_filtred.csv
-# TODO: A partir daqui começa a main
+print("#### Executando código em R para fazer as recomendações")
+recomendar()
+print("#### Código em R executado, recomendações feitas ######")
+print("#### Arquivo de excel Recomendações.xlsx gerado ######")
+
 

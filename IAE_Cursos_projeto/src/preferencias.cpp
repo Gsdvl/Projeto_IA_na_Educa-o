@@ -33,7 +33,7 @@ int main()
     int areaEstudo;
 
     while(true){
-        cout << "Qual a faixa de preço do curso: (entre 0 e 200)" << endl;
+        cout << "Qual o orcamento: (entre 0 e 200)" << endl;
         cin >> orcamento;
         cout << "Cursos curtos, medios ou longos? (1,2,3)" << endl;
         cin >> duracaoCurso;    

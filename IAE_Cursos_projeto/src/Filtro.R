@@ -41,3 +41,4 @@ switch(linhas[4],
 
 cat("Base de dados filtrada")
 write.csv(filtrado, "../content/udemy_courses_filtred.csv", row.names = FALSE)
+
