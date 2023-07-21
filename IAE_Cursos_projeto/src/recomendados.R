@@ -53,3 +53,9 @@ writeData(wb, sheet = "Recomendacoes", x = recomendacoes[[3]], startRow = start_
 # Salvar o arquivo Excel
 saveWorkbook(wb, file = "../content/Recomendacoes.xlsx")
 
+#Criando um arquivo .txt para fazer a avaliação
+
+conteudo <- unique(c(ordenada_inscritos,ordenada_preco,ordenada_relevancia))
+conteudo <- c(conteudo[[2]], conteudo[[1]])
+
+write(conteudo, file = "../content/recomendacoes.txt")

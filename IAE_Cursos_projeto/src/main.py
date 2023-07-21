@@ -27,7 +27,7 @@ def executarModeloDeepLearning():
     processo_predict.communicate()
 
 
-def executarCpp():
+def obterPreferencias():
     # Caminho para o arquivo C++
     caminho_arquivo_cpp = 'preferencias.cpp'
 
@@ -69,18 +69,53 @@ def recomendar():
     # Aguardar o término do processo
     processo.wait()
 
+def avaliar():
+    # Caminho para o arquivo C++
+    caminho_arquivo_cpp = 'avaliar.cpp'
+
+    # Compilar o arquivo C++
+    subprocess.run(['g++', caminho_arquivo_cpp, '-o', '../bin/avaliar'])
+
+    # Executar o arquivo C++
+    processo = subprocess.Popen('../bin/avaliar')
+
+    # Aguardar o término do process
+    processo.communicate()
+
+def filtrarAvaliados():
+    # Caminho para o arquivo R
+    caminho_arquivo_r = 'removeRejeitados.R'
+
+    # Executar o código R
+    processo = subprocess.Popen(['Rscript', caminho_arquivo_r])
+
+    # Aguardar o término do processo
+    processo.wait()
+
+def treinandoDLeRecomendando():
+    print("Pronto para Rodar o código em python...")
+    executarModeloDeepLearning()
+    print("#### Modelo de Deep Learning Executado ######")
+    print("#### Executando código em R para fazer as recomendações")
+    recomendar()
+    print("#### Código em R executado, recomendações feitas ######")
+
+
 #Chama as funções que executam os outros códigos
-executarCpp()
+obterPreferencias()
 print("#### Código em C++ compilado e executado, perfil de usuario obtido ######")
 filtrar()
 print("#### Código em R executado, arquivo base filtrado ######")
 
-print("Pronto para Rodar o código em python...")
-executarModeloDeepLearning()
-print("#### Modelo de Deep Learning Executado ######")
-print("#### Executando código em R para fazer as recomendações")
-recomendar()
-print("#### Código em R executado, recomendações feitas ######")
+treinandoDLeRecomendando()
+
+print("Rodando sistema de avaliações...")
+avaliar()
+print("Avaliações feitas, filtrando novamente...")
+filtrarAvaliados()
+
+treinandoDLeRecomendando()
+
 print("#### Arquivo de excel Recomendações.xlsx gerado ######")
 
 
